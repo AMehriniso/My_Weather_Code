@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weather code</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="wrap">
+		<div class="container">
+			<div class="top">
+				<div>
+					<div class="h1">Weather code</div>
+					<div class="h2">Источник: Open-Meteo</div>
+				</div>
+				<div class="topBtns">
+					<button id="btnRefresh" class="btn btnBlue" type="button">Обновить</button>
+					<button id="btnAdd" class="btn" type="button">Добавить город</button>
+				</div>
+			</div>
+
+			<div class="grid">
+				<div class="card">
+					<div class="cardTop">
+						<div class="cardTitle">Локации</div>
+						<div class="cardHint">Переключайся между городами</div>
+					</div>
+
+					<div id="locList" class="chips"></div>
+
+					<div id="emptyBox" class="empty hide">
+						<div class="emptyTitle">Нет выбранной локации</div>
+						<div class="emptyText">Разреши геолокацию или добавь город вручную</div>
+						<button id="btnEmptyAdd" class="btn btnBlue" type="button">Добавить город</button>
+					</div>
+
+					<div class="smallText">Можно добавить до 5 городов вручную</div>
+				</div>
+
+				<div class="card">
+					<div class="cardTop">
+						<div class="cardTitle">Погода</div>
+						<div id="meta" class="cardHint">—</div>
+					</div>
+
+					<div id="status" class="status hide"></div>
+
+					<div id="weatherBox" class="weather hide">
+						<div class="now">
+							<div>
+								<div class="smallText">Сейчас</div>
+								<div id="tempNow" class="bigTemp">—</div>
+								<div id="descNow" class="muted">—</div>
+							</div>
+
+							<div class="facts">
+								<div class="fact">
+									<div class="muted">Ветер</div>
+									<div id="windNow" class="bold">—</div>
+								</div>
+								<div class="fact">
+									<div class="muted">Днём (max)</div>
+									<div id="tMax" class="bold">—</div>
+								</div>
+								<div class="fact">
+									<div class="muted">Ночью (min)</div>
+									<div id="tMin" class="bold">—</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="section">Прогноз на 3 дня</div>
+						<div id="days" class="days"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="back" class="back hide"></div>
+
+	<div id="modal" class="modal hide">
+		<div class="modalTop">
+			<div class="modalTitle">Добавить город</div>
+			<button id="btnClose" class="xbtn" type="button">✕</button>
+		</div>
+
+		<div class="modalBody">
+			<div class="lab">Город</div>
+			<input id="inpCity" class="inp" type="text" placeholder="Например: Москва">
+
+			<div id="sug" class="sug hide"></div>
+
+			<div id="err" class="err hide"></div>
+
+			<div class="modalBtns">
+				<button id="btnOk" class="btn btnBlue" type="button">Добавить</button>
+				<button id="btnCancel" class="btn" type="button">Отмена</button>
+			</div>
+
+			<div class="smallText">Нужно выбрать город из списка подсказок</div>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
